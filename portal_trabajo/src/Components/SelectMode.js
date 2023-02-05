@@ -1,45 +1,35 @@
-import React, { useState } from 'react';
-import './SelectMode.css';
-import { CSSTransition } from 'react-transition-group';
+import React from 'react';
+import './css/SelectMode.css';
 import developer from '../assets/img/developer.png';
 import recruiter from '../assets/img/recruiter.png';
 
 const SelectMode = () => {
-    const [isVisible, setIsVisible] = useState(true);
-  
-    const handleClick = () => {
-      setIsVisible(false);
-    };
-  
     return (
-      <div>
-        <CSSTransition
-          in={isVisible}
-          timeout={300}
-          classNames="fade"
-          unmountOnExit
-        >
-          <div className="flex flex-col w-full border-opacity-50 my-5">
-            <div className="grid w-5/6  h-20 card  bg-accent rounded-box place-items-center text-white mx-auto" onClick={handleClick}>
-              <div className="flex items-stretch ...">
+      <div className=''>
+          <div>
+          <div className="flex w-full">
+          <div className="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">
+            <div className="flex items-stretch ...">
                 <div className="w-10 rounded-full">
-                  <img src={developer}/>
+                  <img src={developer} alt="FindJob"/>
                 </div>
                 <span className='mb-auto mt-auto ml-2'>Estoy buscando trabajo.</span>
-              </div>
             </div>
-            <div className="divider w-5/6 mx-auto">O</div>
-            <div className="grid w-5/6 h-20 card bg-success rounded-box place-items-center text-white mx-auto" onClick={handleClick}>
-              <div className="flex items-stretch ...">
+              </div>
+          <div className="divider divider-horizontal">O</div>
+          <div className="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">
+            <div className="flex items-stretch ...">
                 <div className="w-10 rounded-full">
-                  <img src={recruiter}/>
+                  <img src={recruiter} alt="FindDev"/>
                 </div>
                 <span className='mb-auto mt-auto ml-2'>Estoy buscando personal.</span>
               </div>
-            </div>
+              </div>
           </div>
-        </CSSTransition>
+          </div>
       </div>
+
+      
     )
   }
   
