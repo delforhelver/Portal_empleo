@@ -7,6 +7,7 @@ import Profiles from './Components/Profiles';
 import SaveProfile from './Components/SaveProfile';
 import Login from './Components/Login';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Register from './Components/Register';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
    <NavBar/>
    <Routes>
     <Route path="/profiles" element={<Profiles/>} />
+    <Route path="/login" element={<Login/>} />
+    <Route path="/register" element={<Register/>} />
    </Routes>
    <Footer/>
    </BrowserRouter>
