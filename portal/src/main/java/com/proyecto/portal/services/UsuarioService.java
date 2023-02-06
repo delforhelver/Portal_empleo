@@ -16,4 +16,12 @@ public UsuarioModel getUsuario(Long user_id){
   return usuarioRepository.findById(user_id).get();
 }
 
+public UsuarioModel getUserByEmail(String email){
+  return usuarioRepository.findUserByEmail(email);
+}
+
+public UsuarioModel guardarUsuario(UsuarioModel perfil){
+  return usuarioRepository.save(perfil);
+}
+
 }
