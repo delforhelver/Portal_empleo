@@ -9,34 +9,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.proyecto.portal.exceptions.ResourceNotFoundException;
 import com.proyecto.portal.models.UsuarioModel;
 import com.proyecto.portal.services.UsuarioService;
 
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
-    
-    @Autowired
-    UsuarioService usuarioService;
 
-    @CrossOrigin(origins = "http://localhost:3000")
-    @RequestMapping(value = "/{user_id}")
-    @GetMapping()
-    public UsuarioModel obtenerUsuario(@PathVariable Long user_id){
-      return usuarioService.getUsuario(user_id);
+  @Autowired
+  UsuarioService usuarioService;
+
+  @CrossOrigin(origins = "http://localhost:3000")
+  @RequestMapping(value = "/{user_id}")
+  @GetMapping()
+  public UsuarioModel obtenerUsuario(@PathVariable Long user_id) {
+    return usuarioService.getUsuario(user_id);
+  }
+
+  @CrossOrigin(origins = "http://localhost:3000")
+  @RequestMapping(value = "/email/{email}")
+  @GetMapping()
+  public UsuarioModel getUsuarioEmail(@PathVariable String email) {
+    UsuarioModel usuario = usuarioService.getUserByEmail(email);
+    if (usuario != null) {
+      return usuario;
+    } else {
+      throw new ResourceNotFoundException();
     }
+  }
 
-    @CrossOrigin(origins = "http://localhost:3000")
-    @RequestMapping(value = "/email/{email}")
-    @GetMapping()
-    public UsuarioModel getUsuarioEmail(@PathVariable String email){
-      return usuarioService.getUserByEmail(email);
-    }
-
-
-    @CrossOrigin(origins = "http://localhost:3000")
-    @PostMapping
-    public UsuarioModel guardarUsuario(@RequestBody UsuarioModel perfil){
-        return this.usuarioService.guardarUsuario(perfil);
-    }
+  @CrossOrigin(origins = "http://localhost:3000")
+  @PostMapping
+  public UsuarioModel guardarUsuario(@RequestBody UsuarioModel perfil) {
+    return this.usuarioService.guardarUsuario(perfil);
+  }
 }
