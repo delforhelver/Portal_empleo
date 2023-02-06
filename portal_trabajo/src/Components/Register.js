@@ -33,6 +33,8 @@ function Register () {
     });
     console.log(formData);
   };
+
+
   return (
     <div className='div-global flex h-screen bg-base-200 my-5 justify-center items-center'>
       <div className='w-1/2 p-4'>
