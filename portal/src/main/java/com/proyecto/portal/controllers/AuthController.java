@@ -9,12 +9,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.proyecto.portal.models.UsuarioModel;
 import com.proyecto.portal.services.UsuarioService;
+import com.proyecto.portal.utils.JWTUtil;
 
 @RestController
 public class AuthController {
     
     @Autowired
     UsuarioService usuarioService;
+
+    @Autowired
+    private JWTUtil jwtUtil;
 
     @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(value = "/login")
@@ -23,9 +27,11 @@ public class AuthController {
       UsuarioModel usuarioLogueado = usuarioService.obtenerUsuarioPorCredenciales(usuario);
       
       if (usuarioLogueado != null) {
-        return "ENCONTRO"; }
+
+         String token = jwtUtil.create(String.valueOf(usuarioLogueado.getUser_id()), usuarioLogueado.getEmail());
+         return token; }
       else{
-        return "NO ENCONTRO";
+        return "FAIL";
       }
 
 
