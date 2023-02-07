@@ -41,7 +41,7 @@ public class UsuarioController {
 
   @CrossOrigin(origins = "http://localhost:3000")
   @PostMapping
-  public UsuarioModel guardarUsuario(@RequestBody UsuarioModel perfil) {
-    return this.usuarioService.guardarUsuario(perfil);
+  public UsuarioModel guardarUsuario(@RequestBody UsuarioModel usuario) {
+    return this.usuarioService.guardarUsuario(usuario);
   }
 }
