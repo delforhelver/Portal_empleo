@@ -12,6 +12,11 @@ function App() {
 
   const [isLogged, setIsLogged] = useState(false);
 
+  const handleLogout = () => {
+    localStorage.removeItem('usuario');
+    setIsLogged(false);
+  };
+
   const handleLogin = () => {
     setIsLogged(true);
   };
@@ -19,7 +24,7 @@ function App() {
   return (
    <>
    <BrowserRouter>
-   <NavBar isLogged={isLogged}/>
+   <NavBar isLogged={isLogged} handleLogout={handleLogout}/>
    <Routes>
    <Route path="/" element={<Landing/>} />
     <Route path="/profiles" element={<Profiles/>} />
