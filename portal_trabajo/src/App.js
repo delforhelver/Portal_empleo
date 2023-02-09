@@ -6,16 +6,24 @@ import Login from './Components/Login';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Register from './Components/Register';
 import Landing from './Components/Landing';
+import { useState } from 'react';
 
 function App() {
+
+  const [isLogged, setIsLogged] = useState(false);
+
+  const handleLogin = () => {
+    setIsLogged(true);
+  };
+
   return (
    <>
    <BrowserRouter>
-   <NavBar/>
+   <NavBar isLogged={isLogged}/>
    <Routes>
    <Route path="/" element={<Landing/>} />
     <Route path="/profiles" element={<Profiles/>} />
-    <Route path="/login" element={<Login/>} />
+    <Route path="/login" element={<Login onLogin={handleLogin}/>} />
     <Route path="/register" element={<Register/>} />
    </Routes>
    <Footer/>

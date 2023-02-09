@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import axios from "axios";
 import "./css/Login.css";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ onLogin }) => {
   const [datos, setDatos] = useState({
     usuario: "",
     contrasena: "",
@@ -17,8 +17,12 @@ const Login = () => {
     setDatos(newDatos);
   };
 
+
   const navigate = useNavigate();
   const [error, setError] = useState(null);
+  
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -28,6 +32,9 @@ const Login = () => {
       try {
         let res = await axios.post("http://localhost:8080/login", datos);
         console.log(res.data);
+        localStorage.setItem('usuario', JSON.stringify(res.data))
+        onLogin();
+        console.log(onLogin);
         navigate('/');
       } catch (error) {
         setError("Usuario o contraseña incorrectos. Intente nuevamente por favor.");

@@ -3,7 +3,10 @@ import logo from "../assets/img/logo.png";
 import userImg from "../assets/img/usuario.png";
 import { Link } from 'react-router-dom';
 
-const NavBar = () => {
+const NavBar = (props) => {
+   const { isLogged } = props;
+   console.log(isLogged)
+
   return (
     <>
     <div className="navbar bg-base-300">
