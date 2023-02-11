@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Register from './Components/Register';
 import Landing from './Components/Landing';
 import { useState } from 'react';
+import Welcome from './Components/Welcome';
 
 function App() {
 
@@ -29,7 +30,8 @@ function App() {
    <Route path="/" element={<Landing/>} />
     <Route path="/profiles" element={<Profiles/>} />
     <Route path="/login" element={<Login onLogin={handleLogin}/>} />
-    <Route path="/register" element={<Register/>} />
+    <Route path="/register" element={<Register onLogin={handleLogin}/>} />
+    <Route path="/welcome" element={<Welcome/>} />
    </Routes>
    <Footer/>
    </BrowserRouter>

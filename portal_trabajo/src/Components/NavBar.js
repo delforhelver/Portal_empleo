@@ -2,15 +2,23 @@ import React from "react";
 import logo from "../assets/img/logo.png";
 import userImg from "../assets/img/usuario.png";
 import {Link} from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const NavBar = (props) => {
   const {isLogged, handleLogout} = props;
   console.log(isLogged);
+  const navigate = useNavigate();
+
+  const logout = () => {
+    handleLogout();
+    navigate('/');
+  };
 
   return (
     <>
       <div className="navbar bg-base-300">
         <div className="navbar-start">
+        {isLogged && (
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
               <svg
@@ -43,6 +51,7 @@ const NavBar = (props) => {
               </li>
             </ul>
           </div>
+          )}
         </div>
         <div className="navbar-center w-8">
           <img src={logo} alt=""></img>
@@ -104,7 +113,7 @@ const NavBar = (props) => {
                   <a>Settings</a>
                 </li>
                 <li>
-                  <a onClick={handleLogout}>Logout</a>
+                <a onClick={logout}>Logout</a>
                 </li>
               </ul>
             </div>

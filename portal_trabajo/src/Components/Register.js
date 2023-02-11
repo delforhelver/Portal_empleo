@@ -3,7 +3,7 @@ import axios from "axios";
 import './css/Register.css';
 import { useNavigate } from "react-router-dom";
 
-function Register () {
+function Register ({ onLogin }) {
   const [formData, setFormData] = useState({
     usuario: "",
     contrasena: "",
@@ -26,7 +26,12 @@ function Register () {
     .post("http://localhost:8080/usuario", formData)
     .then((res) => {
       console.log(res.data);
-      navigate('/');
+      let response = axios.post("http://localhost:8080/login", formData);
+        console.log(response.data);
+        localStorage.setItem('usuario', JSON.stringify(response.data))
+        onLogin();
+        console.log(onLogin);
+      navigate('/welcome');
     })
     .catch((err) => {
       console.error(err);

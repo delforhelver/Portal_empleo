@@ -35,7 +35,7 @@ const Login = ({ onLogin }) => {
         localStorage.setItem('usuario', JSON.stringify(res.data))
         onLogin();
         console.log(onLogin);
-        navigate('/');
+        navigate('/welcome');
       } catch (error) {
         setError("Usuario o contraseña incorrectos. Intente nuevamente por favor.");
       }
