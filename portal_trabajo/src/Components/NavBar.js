@@ -103,12 +103,13 @@ const NavBar = (props) => {
                 tabIndex={0}
                 className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
               >
+                <Link to="/saveprofile">
                 <li>
                   <a className="justify-between">
-                    Profile
-                    <span className="badge">New</span>
+                    Profile 
                   </a>
                 </li>
+                </Link>
                 <li>
                   <a>Settings</a>
                 </li>

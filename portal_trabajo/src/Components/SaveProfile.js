@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
-import './SaveProfile.css';
+import './css/SaveProfile.css';
 
 function SaveProfile() {
   const [formData, setFormData] = useState({

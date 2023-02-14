@@ -8,6 +8,7 @@ import Register from './Components/Register';
 import Landing from './Components/Landing';
 import { useState } from 'react';
 import Welcome from './Components/Welcome';
+import SaveProfile from './Components/SaveProfile';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
     <Route path="/login" element={<Login onLogin={handleLogin}/>} />
     <Route path="/register" element={<Register onLogin={handleLogin}/>} />
     <Route path="/welcome" element={<Welcome/>} />
+    <Route path="/saveprofile" element={<SaveProfile/>} />
    </Routes>
    <Footer/>
    </BrowserRouter>
