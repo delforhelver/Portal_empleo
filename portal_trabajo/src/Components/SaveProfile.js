@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios";
+import Select from "react-select";
 import "./css/SaveProfile.css";
 
 function SaveProfile() {
@@ -12,11 +13,32 @@ function SaveProfile() {
     li_link: "",
   });
 
+  const options = [
+    {value: "opcion1", label: "Opción 1"},
+    {value: "opcion2", label: "Opción 2"},
+    {value: "opcion3", label: "Opción 3"},
+    {value: "opcion4", label: "Opción 4"},
+  ];
+
+  const customStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      backgroundColor: '#2a303c',
+
+    })
+  };
+
+  const [selectedOptions, setSelectedOptions] = useState([]);
+
   const handleInputChange = (event) => {
     setFormData({
       ...formData,
       [event.target.name]: event.target.value,
     });
+  };
+
+  const handleChange = (selected) => {
+    setSelectedOptions(selected);
   };
 
   const handleSubmit = (event) => {
@@ -157,6 +179,16 @@ function SaveProfile() {
                 onChange={handleInputChange}
               />
             </div>
+          </div>
+          <div>
+          <label className="block label-text mb-2">Tecnologias</label>
+            <Select id="multi-tech"
+              styles={customStyles}
+              options={options}
+              isMulti
+              value={selectedOptions}
+              onChange={handleChange}
+            />
           </div>
           <div className="form-control mt-6">
             <button className="btn btn-primary">Enviar</button>
