@@ -28,7 +28,8 @@ function App() {
    <BrowserRouter>
    <NavBar isLogged={isLogged} handleLogout={handleLogout}/>
    <Routes>
-   <Route path="/" element={<Landing/>} />
+   <Route path={isLogged ? '/welcome' : '/'} 
+          element={isLogged ? <Welcome /> : <Landing />}/>
     <Route path="/profiles" element={<Profiles/>} />
     <Route path="/login" element={<Login onLogin={handleLogin}/>} />
     <Route path="/register" element={<Register onLogin={handleLogin}/>} />

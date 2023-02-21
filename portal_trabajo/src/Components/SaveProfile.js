@@ -18,6 +18,10 @@ function SaveProfile() {
     {value: "opcion2", label: "Opción 2"},
     {value: "opcion3", label: "Opción 3"},
     {value: "opcion4", label: "Opción 4"},
+    {value: "opcion1", label: "Opción 1"},
+    {value: "opcion2", label: "Opción 2"},
+    {value: "opcion3", label: "Opción 3"},
+    {value: "opcion4", label: "Opción 4"}
   ];
 
   const customStyles = {
@@ -55,41 +59,14 @@ function SaveProfile() {
   };
 
   return (
-    <div className="div-global flex">
-      <div className="flex-1 min-w-0 my-5 ml-10 w-1/2">
-        <a href="#" class="group relative block bg-black">
-          <img
-            alt="Developer"
-            src="https://images.unsplash.com/photo-1603871165848-0aa92c869fa1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=772&q=80"
-            class="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
-          />
-
-          <div class="relative p-8">
-            <p class="text-sm font-medium uppercase tracking-widest text-pink-500">
-              Developer
-            </p>
-
-            <p class="text-2xl font-bold text-white">Tony Wayne</p>
-
-            <div class="mt-64">
-              <div class="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
-                <p class="text-sm text-white">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Omnis perferendis hic asperiores quibusdam quidem voluptates
-                  doloremque reiciendis nostrum harum. Repudiandae?
-                </p>
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div className="flex-2">
+    <div className="div-global flex place-content-center">
+      <div className="w-2/3">
         <form
-          className="bg-base-200 p-6 rounded-lg shadow-md mx-auto my-5 mr-10"
+          className="bg-base-300 p-6 rounded-lg shadow-md my-5"
           onSubmit={handleSubmit}
         >
           <h2 className="text-lg font-medium mb-4 text-center">
-            Completar Perfil
+            Datos Personales
           </h2>
 
           <div className="w-full mr-4 mb-4">
@@ -191,9 +168,19 @@ function SaveProfile() {
             />
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Enviar</button>
+            <button className="btn btn-primary">Modificar Datos</button>
           </div>
         </form>
+        <div className="div-exp bg-base-300 p-6 rounded-lg shadow-md mb-5">
+        <h2 className="text-lg font-medium mb-4 text-center">
+            Experiencia Laboral
+          </h2>
+      </div>
+      <div className="div-aca bg-base-300 p-6 rounded-lg shadow-md mb-5">
+        <h2 className="text-lg font-medium mb-4 text-center">
+            Formación Academica
+          </h2>
+      </div>
       </div>
     </div>
   );

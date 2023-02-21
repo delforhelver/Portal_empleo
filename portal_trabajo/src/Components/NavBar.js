@@ -41,13 +41,10 @@ const NavBar = (props) => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link to="/">Inicio</Link>
+                <Link to="/welcome">Inicio</Link>
               </li>
               <li>
                 <Link to="/profiles">Perfiles</Link>
-              </li>
-              <li>
-                <a>About</a>
               </li>
             </ul>
           </div>
@@ -106,15 +103,15 @@ const NavBar = (props) => {
                 <Link to="/saveprofile">
                 <li>
                   <a className="justify-between">
-                    Profile 
+                    Perfil 
                   </a>
                 </li>
                 </Link>
                 <li>
-                  <a>Settings</a>
+                  <a>Configuración</a>
                 </li>
                 <li>
-                <a onClick={logout}>Logout</a>
+                <a onClick={logout}>Desconectarse</a>
                 </li>
               </ul>
             </div>
