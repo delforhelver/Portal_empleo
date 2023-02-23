@@ -34,5 +34,8 @@ public class PerfilModel {
     @Getter @Setter
     private String li_link;
 
+    @Getter @Setter
+    private String imagen;
+
     
 }
